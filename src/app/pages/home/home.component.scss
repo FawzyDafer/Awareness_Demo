@@ -1,0 +1,206 @@
+.widget-container {
+  margin-left: 320px;
+}
+
+#scroll {
+  height: 500px;
+}
+
+#scroll.horizontal {
+  margin-top: 170px;
+  display: block;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+}
+
+.handle {
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  font-size: 18px;
+  line-height: 19px;
+  cursor: move;
+}
+
+.horizontal .handle {
+  margin-right: 10px;
+}
+
+.item {
+  box-sizing: border-box;
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+.item-with-handle {
+  padding-left: 30px;
+  cursor: default;
+}
+
+.horizontal .item {
+  display: inline-block;
+ // width: 200px;
+  height: 100px;
+  margin-bottom: 0;
+  margin-right: 10px;
+  white-space: normal;
+}
+
+.options {
+//   padding: 20px;
+//   position: absolute;
+// //  bottom: 0;
+// //  left: 0;
+//   width: 260px;
+//   top: 90px;
+//   background-color: rgba(191, 191, 191, 0.15);
+}
+
+.caption {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.option {
+  margin-top: 10px;
+}
+
+#kanban {
+  white-space: nowrap;
+}
+
+.list {
+  border-radius: 8px;
+  margin: 5px;
+  background-color: rgba(192, 192, 192, 0.4);
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.list-title {
+  font-size: 16px;
+  padding: 10px;
+  padding-left: 30px;
+  margin-bottom: -10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.scrollable-list {
+  margin-top: 50px;
+//  height: 400px;
+  width: 100%; 
+  min-height: 100px;
+}
+
+.sortable-cards {
+  min-height: 380px;
+}
+
+.card {
+  position: relative;
+  background-color: white;
+  box-sizing: border-box;
+  width: 230px;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.card-subject {
+  padding-bottom: 10px;
+}
+
+.card-assignee {
+  opacity: 0.6;
+}
+
+.card-priority {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 5px;
+  width: 5px;
+  border-radius: 2px;
+  background: #86c285;
+}
+
+.priority-1 {
+  background: #adadad;
+}
+
+.priority-2 {
+  background: #86c285;
+}
+
+.priority-3 {
+  background: #edc578;
+}
+
+.priority-4 {
+  background: #ef7d59;
+}
+
+::ng-deep .dx-sortable {
+  display: block;
+}
+
+::ng-deep .widget-container {
+  display: flex;
+}
+
+::ng-deep .widget-container > * {
+  height: 400px;
+  width: 50%;
+  padding: 10px;
+}
+
+::ng-deep .dx-scrollview-content {
+   min-height: 100px;
+}
+::ng-deep .form {
+  display: flex;
+}
+
+::ng-deep .form > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+::ng-deep #treeviewDriveC,
+::ng-deep #treeviewDriveD {
+  margin-top: 10px;
+}
+
+::ng-deep .drive-header {
+  min-height: auto;
+  padding: 0;
+  cursor: default;
+}
+
+::ng-deep .drive-panel {
+  padding: 20px 30px;
+  font-size: 115%;
+  font-weight: bold;
+  border-right: 1px solid rgba(165, 165, 165, 0.4);
+  height: 100%;
+}
+
+::ng-deep .drive-panel:last-of-type {
+  border-right: none;
+}
+
+
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}

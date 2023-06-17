@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.dx-pager .dx-pages .dx-page {
+    padding: 9px 12px;
+    line-height: 12px;
+    //display: none;
+}
+
+mat-stepper {
+    @apply bg-gray-100 #{!important};
+
+    .mat-step {
+        margin: 10px !important;
+        @apply bg-white;
+
+        .mat-vertical-content-container {
+            margin-left: 0px; 
+            border: 0;
+            position: relative;
+        }
+        .mat-stepper-vertical-line::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            border-left-width: 0px;
+            border-left-style: solid;
+            display: none !important;
+        }
+        .mat-step-header .cdk-keyboard-focused , .mat-step-header .cdk-program-focused {
+            @apply bg-white #{!important}
+        }
+        .mat-step-header .mat-step-label.mat-step-label-active {
+            color: rgba(0, 0, 0, 0.87);
+            width: 100% !important;
+        }
+    }
+}

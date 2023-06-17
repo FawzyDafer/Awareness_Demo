@@ -1,0 +1,344 @@
+<div style="height: 100vh !important;">
+  <div class="bg-white m-3 p-3">
+  <div>
+    <div class="flex justify-between shadow items-center bg-gray-100 w-full h-16">
+      <div class="mx-7">
+        <span>خطة التحول الرقمي</span>
+
+      </div>
+      <div class="mx-10 flex justify-center">
+
+        <span (click)="addActivity()"> add activity</span>
+        <mat-icon class="text-blue-400 mx-3">add_circle</mat-icon>
+      </div>
+    </div>
+    <div class="bg-gray-100 flex text-center justify-center  w-full h-16">
+
+      <input type="date" class="border h-8 w-36 mx-20">
+      <span>start date</span>
+
+    </div>
+  </div>
+  <div class="mt-5 p-5 h-96 bg-gray-100" style="overflow: auto; height: 40vh;">
+    <div >
+     <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+      <ng-container *ngIf="!IsSelectedStep">
+        <ng-container *ngFor="let step of steps">
+
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>
+                <div class="w-full flex justify-between">
+                  <span> {{step.stepName}}</span>
+                  <mat-icon class="text-gray-300">keyboard_arrow_down</mat-icon>
+                </div>
+              </ng-template>
+              <div class="border border-gray-200 border-dashed p-2">
+                <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+                  <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup"
+                    (onAdd)="onTaskadd($event)" (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                    <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                      style="padding: 10px">
+                      <span>{{ dragInfo.name }}</span>
+                      <mat-icon class="text-green-400">check_circle</mat-icon>
+
+                    </div>
+                  </dx-sortable>
+                </dx-scroll-view>
+              </div>
+            </form>
+          </mat-step>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="IsSelectedStep">
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>
+              <div class="w-full flex justify-between">
+                <span> {{selectedStep.stepName}}</span>
+                <mat-icon class="text-gray-300">keyboard_arrow_down</mat-icon>
+              </div>
+            </ng-template>
+            <div class="border border-gray-200 border-dashed p-2">
+              <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+                <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup"
+                  (onAdd)="onTaskadd($event)" (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                  <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                    style="padding: 10px">
+                    <span>{{ dragInfo.name }}</span>
+                    <mat-icon class="text-green-400">check_circle</mat-icon>
+
+                  </div>
+                </dx-sortable>
+              </dx-scroll-view>
+            </div>
+          </form>
+        </mat-step>
+      </ng-container>
+    </mat-stepper>
+  </div>
+  </div>
+</div>
+  <div>
+    <div class="w-full mt-3 p-3 border border-dashed border-green-900">
+      <dx-sortable filter=".dx-treeview-item" group="cardsGroup" data="driveD" [allowDropInsideItem]="true"
+        [allowReordering]="true" (onDragStart)="onDragChange($event)" (onDragEnd)="onDragEnd($event)">
+        <dx-tree-view #treeviewDriveD id="treeviewDriveD" dataStructure="plain" displayExpr="name"
+          itemTemplate="productTemplate" (onItemClick)="clickc($event)" [items]="itemsDriveC" [height]="380">
+          <div (click)="enter(product)" *dxTemplate="let product of 'productTemplate'"
+            class="w-full flex justify-between item dx-card dx-theme-text-color dx-theme-background-color"
+            style="font-weight: bold; padding: 10px">
+            <span [ngClass]="{'bg-gray-200':product.isDirectory && product?.parentId}" class=" w-full mx-3">
+              {{ product.name}}
+            </span>
+            <span class="text-green-600 mx-5 w-44" (click)="showPopup(product)">Add Child</span>
+          </div>
+        </dx-tree-view>
+      </dx-sortable>
+    </div>
+  </div>
+</div>
+<!-- <div class="p-5 bg-white m-5">
+  <div class="flex justify-between shadow items-center bg-gray-100 w-full h-16">
+    <div class="mx-7">
+      <span>خطة التحول الرقمي</span>
+
+    </div>
+    <div class="mx-10 flex justify-center">
+     
+      <span (click)="addActivity()"> add activity</span>
+      <mat-icon class="text-blue-400 mx-3">add_circle</mat-icon>
+    </div>
+  </div>
+  <div class="bg-gray-100 flex text-center justify-center  w-full h-16">
+
+    <input type="date" class="border h-8 w-36 mx-20">
+    <span>start date</span>
+
+  </div>
+  <div class="mt-2 p-3 bg-gray-100"> -->
+<!-- 
+    first option in demooooooooo
+    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+      <ng-container *ngIf="!IsSelectedStep" >
+      <ng-container  *ngFor="let step of steps">
+
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>
+              <div (click)="OpenActivity(step)"  class="w-full flex justify-between">
+                <span> {{step.stepName}}</span>
+                <mat-icon  class="text-gray-300">keyboard_arrow_down</mat-icon>
+              </div>
+             </ng-template>
+            <div class="border border-gray-200 border-dashed p-2">
+              <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+                <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup" (onAdd)="onTaskadd($event)"
+                  (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                  <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                    style="padding: 10px">
+                    <span >{{ dragInfo.name }}</span>
+                    <mat-icon class="text-green-400">check_circle</mat-icon>
+                    
+                  </div>
+                </dx-sortable>
+              </dx-scroll-view>
+            </div>
+          </form>
+        </mat-step>
+      </ng-container>
+    </ng-container>
+     <ng-container *ngIf="IsSelectedStep">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>
+            <div class="w-full flex justify-between">
+              <span> {{selectedStep.stepName}}</span>
+              <mat-icon class="text-gray-300">keyboard_arrow_down</mat-icon>
+            </div>
+           </ng-template>
+          <div class="border border-gray-200 border-dashed p-2">
+            <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+              <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup" (onAdd)="onTaskadd($event)"
+                (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                  style="padding: 10px">
+                  <span >{{ dragInfo.name }}</span>
+                  <mat-icon class="text-green-400">check_circle</mat-icon>
+                  
+                </div>
+              </dx-sortable>
+            </dx-scroll-view>
+          </div>
+        </form>
+      </mat-step>
+     </ng-container>
+    </mat-stepper> -->
+
+
+<!-- first option in demooooooooo -->
+<!-- <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+      <ng-container *ngIf="!IsSelectedStep" >
+      <ng-container  *ngFor="let step of steps">
+
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>
+              <div  class="w-full flex justify-between">
+                <span> {{step.stepName}}</span>
+                <mat-icon  class="text-gray-300">keyboard_arrow_down</mat-icon>
+              </div>
+             </ng-template>
+            <div class="border border-gray-200 border-dashed p-2">
+              <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+                <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup" (onAdd)="onTaskadd($event)"
+                  (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                  <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                    style="padding: 10px">
+                    <span >{{ dragInfo.name }}</span>
+                    <mat-icon class="text-green-400">check_circle</mat-icon>
+                    
+                  </div>
+                </dx-sortable>
+              </dx-scroll-view>
+            </div>
+          </form>
+        </mat-step>
+      </ng-container>
+    </ng-container>
+     <ng-container *ngIf="IsSelectedStep">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>
+            <div class="w-full flex justify-between">
+              <span> {{selectedStep.stepName}}</span>
+              <mat-icon class="text-gray-300">keyboard_arrow_down</mat-icon>
+            </div>
+           </ng-template>
+          <div class="border border-gray-200 border-dashed p-2">
+            <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+              <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup" (onAdd)="onTaskadd($event)"
+                (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+                <div *ngFor="let dragInfo of items" class="bg-gray-100 w-full my-1.5 shadow flex justify-between "
+                  style="padding: 10px">
+                  <span >{{ dragInfo.name }}</span>
+                  <mat-icon class="text-green-400">check_circle</mat-icon>
+                  
+                </div>
+              </dx-sortable>
+            </dx-scroll-view>
+          </div>
+        </form>
+      </mat-step>
+     </ng-container>
+    </mat-stepper> -->
+<!-- </div>
+</div>
+<div class="">
+  <div class="w-full mt-10 mx-5 border border-dashed border-green-900">
+    <div class="drive-header dx-treeview-item">
+      <div class="dx-treeview-item-content"><i class="dx-icon dx-icon-activefolder"></i><span>Drive D:</span></div>
+    </div>
+    <dx-sortable filter=".dx-treeview-item" group="cardsGroup" data="driveD" [allowDropInsideItem]="true"
+      [allowReordering]="true" (onDragStart)="onDragChange($event)" (onDragEnd)="onDragEnd($event)">
+      <dx-tree-view #treeviewDriveD id="treeviewDriveD" dataStructure="plain" displayExpr="name"
+        itemTemplate="productTemplate" (onItemClick)="clickc($event)" [items]="itemsDriveC" [height]="380">
+        <div (click)="enter(product)" *dxTemplate="let product of 'productTemplate'"
+          class="w-full flex justify-between item dx-card dx-theme-text-color dx-theme-background-color"
+          style="font-weight: bold; padding: 10px">
+          <span [ngClass]="{'bg-gray-200':product.isDirectory && product?.parentId}" class=" w-full mx-3">
+            {{ product.name}}
+          </span>
+          <span class="text-green-600 mx-5 w-44" (click)="showPopup(product)">Add Child</span>
+        </div>
+
+      </dx-tree-view>
+    </dx-sortable>
+  </div>
+</div> -->
+<!-- <div class=" my-20 mx-4 p-2 bg-gray-200 border border-dashed border-green-900 ">
+  <dx-scroll-view class="scrollable-list " direction="vertical" showScrollbar="always">
+    <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup" (onAdd)="onTaskadd($event)"
+      (onDragStart)="onDragStart($event)" (onReorder)="onReorder($event)">
+      <div *ngFor="let dragInfo of items" class="item dx-card dx-theme-text-color dx-theme-background-color"
+        style="font-weight: bold;  padding: 10px">
+        {{ dragInfo.name }}
+      </div>
+    </dx-sortable>
+  </dx-scroll-view>
+</div> -->
+
+
+
+<!-- 
+<dx-popup [width]="550" [height]="350" [visible]="true" [showTitle]="false" [hideOnOutsideClick]="true"
+  [visible]="popupVisible">
+  <span class="m-5"> {{ productData?.name}}</span>
+  <br>
+  <input type="text m-5 p-4" class="border " placeholder="enter child name .. " #childNmae>
+  <br>
+  <button class="rounded m-5 p-4 text-white bg-green-600" (click)="addChild(childNmae.value)">add child</button>
+</dx-popup> -->
+<!-- <div class="form">
+  <div class="drive-panel">
+    <div class="drive-header dx-treeview-item"
+      ><div class="dx-treeview-item-content"
+        ><i class="dx-icon dx-icon-activefolder"></i><span>Drive C:</span></div
+      ></div
+    >
+    <dx-sortable
+      filter=".dx-treeview-item"
+      group="shared"
+      data="driveC"
+      [allowDropInsideItem]="true"
+      [allowReordering]="true"
+
+      (onDragStart)="onDragChange($event)"
+      (onDragEnd)="onDragEnd($event)"
+    >
+   (onDragChange)="onDragChange($event)"
+      <dx-tree-view
+        #treeviewDriveC
+        id="treeviewDriveC"
+        dataStructure="plain"
+        displayExpr="name"
+        [expandNodesRecursive]="false"
+        [items]="itemsDriveC"
+        [width]="250"
+        [height]="380"
+      >
+      </dx-tree-view>
+    </dx-sortable>
+  </div>
+  <div class="drive-panel">
+    <div class="drive-header dx-treeview-item"
+      ><div class="dx-treeview-item-content"
+        ><i class="dx-icon dx-icon-activefolder"></i><span>Drive D:</span></div
+      ></div
+    >
+    <dx-sortable
+      filter=".dx-treeview-item"
+      group="shared"
+      data="driveD"
+      [allowDropInsideItem]="true"
+      [allowReordering]="true"
+      
+      (onDragEnd)="onDragEnd($event)"
+      (onDragStart)="onDragChange($event)"
+    >
+      <dx-tree-view
+      
+      (createChildrenChange)="create($event)"
+        #treeviewDriveD
+        id="treeviewDriveD"
+        dataStructure="plain"
+        displayExpr="name"
+        [expandNodesRecursive]="false"
+        [items]="itemsDriveD"
+        [width]="250"
+        [height]="380"
+      >
+      </dx-tree-view>
+    </dx-sortable>
+  </div>
+</div> -->

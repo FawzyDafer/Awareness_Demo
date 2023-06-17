@@ -1,0 +1,63 @@
+<!-- <div class="bg-green-900" style="height: 90px;"></div>
+<div class="flex">
+  <div class="w-1/5 bg-gray-200 mt-12">
+    <div class="options ">
+      <div class="list">
+        <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+          <dx-sortable class="sortable-cards" group="cardsGroup" [data]="lists" (onDragStart)="onTaskDragStart($event)"
+            (onReorder)="onTaskDrop($event)" (onAdd)="onTaskDrop($event)">
+            <div class="card dx-card dx-theme-text-color dx-theme-background-color" *ngFor="let task of lists">
+              <div class="card-priority" [ngClass]="'priority-' + task.Task_Priority"></div>
+              <div class="card-subject">{{ task.Task_Subject }}</div>
+              <div class="card-assignee"></div>
+            </div>
+          </dx-sortable>
+        </dx-scroll-view>
+      </div>
+    </div>
+  </div>
+  <div class="w-4/5">
+    <div id="kanban">
+      <div class=" my-20 mx-4 p-2 bg-gray-200 border border-dashed border-green-900 ">
+        <dx-scroll-view class="scrollable-list " direction="vertical" showScrollbar="always">
+          <dx-sortable style="min-height: 100px;" [data]="items" id="list" group="cardsGroup"
+            [cursorOffset]="cursorOffset" (onAdd)="onTaskadd($event)" (onDragStart)="onDragStart($event)"
+            (onReorder)="onReorder($event)">
+            <div *ngFor="let dragInfo of items" class="item dx-card dx-theme-text-color dx-theme-background-color"
+              style="font-weight: bold;  padding: 10px">
+              {{ dragInfo }}
+            </div>
+          </dx-sortable>
+        </dx-scroll-view>
+      </div>
+      <div class="list" *ngFor="let list of lists; let listIndex = index">
+        <div class="list-title dx-theme-text-color">{{
+          statuses[listIndex]
+          }}</div>
+        <dx-scroll-view class="scrollable-list" direction="vertical" showScrollbar="always">
+          <dx-sortable class="sortable-cards" [dropFeedbackMode]="'indicate'" group="cardsGroup" [data]="list"
+            (onDragStart)="onTaskDragStart($event)" (onReorder)="onTaskDrop($event)" (onAdd)="onTaskDrop($event)">
+            <div class="card dx-card dx-theme-text-color dx-theme-background-color" *ngFor="let task of list">
+              <div class="card-priority" [ngClass]="'priority-' + task.Task_Priority"></div>
+              <div class="card-subject">{{ task.Task_Subject }}</div>
+              <div class="card-assignee"></div>
+            </div>
+          </dx-sortable>
+        </dx-scroll-view>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<dx-sortable filter=".dx-treeview-item" group="shared" [allowDropInsideItem]="true"
+      [allowReordering]="true" (onDragChange)="onDragChange($event)" (onDragEnd)="onDragEnd($event)">
+      <dx-tree-view #treeviewDriveC id="treeviewDriveC" dataStructure="plain"
+        [expandNodesRecursive]="true"  itemTemplate="productTemplate" [items]="lists">
+        <div *dxTemplate="let product of 'productTemplate'">
+          <span class="bg-green-900 w-full">
+            {{ product.Task_Subject}}
+          </span>
+      </div>
+      </dx-tree-view>
+    </dx-sortable> -->
