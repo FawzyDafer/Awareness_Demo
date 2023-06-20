@@ -333,6 +333,7 @@ export class FileSystemItem {
   isDirectory?: boolean;
 
   expanded?: boolean;
+  items?: any;
 }
 const itemsDriveD: FileSystemItem[] = [{
   id: '1',
@@ -350,191 +351,247 @@ const itemsDriveD: FileSystemItem[] = [{
 }, {
   id: '3',
   parentId: '2',
-  name: ' اعداد تقنيات تخدم الامسوي الاداري ',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-},{
-  id: '1',
-  name: 'تعزيز استخدام الادوات الرقميه',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '2',
-  parentId: '1',
-  name: 'رفع وعي المستوويين',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '3',
-  parentId: '2',
-  name: ' اعداد تقنيات تخدم الامسوي الاداري ',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-},{
-  id: '1',
-  name: 'تعزيز استخدام الادوات الرقميه',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '2',
-  parentId: '1',
-  name: 'رفع وعي المستوويين',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '3',
-  parentId: '2',
-  name: ' اعداد تقنيات تخدم الامسوي الاداري ',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-},{
-  id: '1',
-  name: 'تعزيز استخدام الادوات الرقميه',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '2',
-  parentId: '1',
-  name: 'رفع وعي المستوويين',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '3',
-  parentId: '2',
-  name: ' اعداد تقنيات تخدم الامسوي الاداري ',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-},{
-  id: '1',
-  name: 'تعزيز استخدام الادوات الرقميه',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '2',
-  parentId: '1',
-  name: 'رفع وعي المستوويين',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '3',
-  parentId: '2',
-  name: ' اعداد تقنيات تخدم الامسوي الاداري ',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-}, ];
-const itemsDriveC: FileSystemItem[] = [{
-  id: '1',
-  name: 'Documents',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '2',
-  parentId: '1',
-  name: 'Projects',
-  icon: 'activefolder',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '3',
-  parentId: '2',
-  name: 'About.rtf',
+  name: ' اعداد تقنيات تخدم المستوي الاداري ',
   icon: 'file',
   isDirectory: false,
   expanded: true,
 }, {
   id: '4',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}];
+const stepsChild: FileSystemItem[] = [{
+  id: '1',
+  parentId: '1',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}, {
+  id: '2',
   parentId: '2',
-  name: 'Passwords.rtf',
+  name: 'رفع وعي المستوويين',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}, {
+  id: '3',
+  parentId: '2',
+  name: ' اعداد تقنيات تخدم المستوي الاداري ',
   icon: 'file',
+  isDirectory: false,
+  expanded: true,
+}, {
+  id: '4',
+  parentId: '3',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
   isDirectory: false,
   expanded: true,
 }, {
   id: '5',
-  parentId: '2',
-  name: 'About.xml',
-  icon: 'file',
+  parentId: '3',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
   isDirectory: false,
   expanded: true,
 }, {
   id: '6',
-  parentId: '2',
-  name: 'Managers.rtf',
-  icon: 'file',
+  parentId: '3',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}];
+const steps: FileSystemItem[] = [{
+  id: '1',
+  parentId: '1',
+  name: 'تعزيز استخدام الادوات الرقميه',
+  icon: 'activefolder',
   isDirectory: false,
   expanded: true,
 }, {
-  id: '7',
+  id: '2',
+  parentId: '1',
+  name: 'رفع وعي المستوويين',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}, {
+  id: '3',
   parentId: '2',
-  name: 'ToDo.txt',
+  name: ' اعداد تقنيات تخدم المستوي الاداري ',
   icon: 'file',
   isDirectory: false,
   expanded: true,
+}];
+const itemsDriveC: FileSystemItem[] = [{
+  id: '2',
+  name: 'مجال رئيسي التقنيات الناشئة',
+  icon: 'activefolder',
+  isDirectory: false,
+  expanded: true,
+}, {
+  id: '3',
+  parentId: '2',
+  name: 'مجال فرعي انترنت الاشياء',
+  icon: 'file',
+  isDirectory: false,
+  expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'هدف تعزيز استخدام الادوات التقنيه ',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: 'رفع وعي المستوي بالتقنيات',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: ' هدف 3 انترنت الاشياء',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
+
+}, {
+  id: '4',
+  parentId: '2',
+  name: 'RPA مجال فرعي 2',
+  icon: 'file',
+  isDirectory: false,
+  expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'RPA هدف تعزيز استخدام الادوات التقنيه ',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: 'RPA رفع وعي المستوي بالتقنيات',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
+}, {
+  id: '5',
+  parentId: '2',
+  name: 'مجال فرعي  CSP 3',
+  icon: 'file',
+  isDirectory: false,
+  expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'CSP مجال فرعي انترنت الاشياء',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
 }, {
   id: '8',
-  name: 'Images',
+  name: 'مجال رئيسي 2 البرمجيات مفتوحة المصدر',
   isDirectory: false,
   icon: 'activefolder',
   expanded: true,
 }, {
   id: '9',
   parentId: '8',
-  name: 'logo.png',
+  name: 'مجال فرعي 1 نظم المعلومات',
   isDirectory: false,
   icon: 'file',
   expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'هدف نظم المعلومات 1',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: 'هدف نظم المعلومات 3',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
 }, {
   id: '10',
   parentId: '8',
-  name: 'banner.gif',
+  name: 'مجال فرعي 2 ',
   icon: 'file',
   isDirectory: false,
   expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'مجال فرعي  هدف 1',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: 'مجال فرعي  هدف 2',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: 'مجال فرعي  هدف 3',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
 }, {
   id: '11',
-  name: 'System',
+  name: 'مجال رئيسي 3 ',
   icon: 'activefolder',
   isDirectory: false,
   expanded: true,
 }, {
   id: '12',
   parentId: '11',
-  name: 'Employees.txt',
+  name: 'مجال فرعي 1',
   icon: 'file',
   isDirectory: false,
   expanded: true,
-}, {
-  id: '13',
-  parentId: '11',
-  name: 'PasswordList.txt',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '14',
-  name: 'Description.rtf',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
-}, {
-  id: '15',
-  name: 'Description.txt',
-  icon: 'file',
-  isDirectory: false,
-  expanded: true,
+  items: [{
+    id: '3',
+    parentId: '2',
+    name: 'مجال فرعي انترنت الاشياء',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: ' الشؤون الاداريه هدف 1',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }, {
+    id: '3',
+    parentId: '2',
+    name: ' الشؤون الاداريه هدف 2',
+    icon: 'file',
+    isDirectory: false,
+    expanded: true,
+  }]
 }];
 
 @Injectable({
@@ -563,5 +620,13 @@ export class ServiceService {
 
   getItemsDriveD(): FileSystemItem[] {
     return itemsDriveD;
+  }
+
+  getSteps() {
+    return steps;
+  }
+
+  getStepsChild() {
+    return stepsChild;
   }
 }

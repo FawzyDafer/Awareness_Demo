@@ -38,4 +38,41 @@ mat-stepper {
             width: 100% !important;
         }
     }
+
+    .dx-treeview-node {
+        padding-left: 0px;
+    }
 }
+.tree-design{
+
+
+.dx-sortable{
+    @apply bg-gray-100 ;
+    dx-tree-view {
+        .dx-scrollable {
+          padding: 20px;
+            .dx-scrollable-wrapper{
+                .dx-scrollable-content{
+                    .dx-treeview-node-container{
+                        .dx-treeview-node{
+                            padding-left: 0px;
+                            @apply bg-white #{!important} ; 
+                            margin-bottom: 10px;
+                            .dx-treeview-item {
+                                display: block;
+                                cursor: pointer;
+                                padding: 0px 2px;
+                                padding-bottom: 0px !important;
+                                min-height: 48px;
+                                line-height: 22px;
+                                @apply bg-white #{!important}
+                            }
+                    }
+                }
+            }
+        }
+    }
+}   
+ 
+}  
+} 

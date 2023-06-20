@@ -27,20 +27,20 @@ export class SideNavOuterToolbarComponent implements OnInit {
   menuRevealMode = 'expand';
   minMenuSize = 0;
   shaderEnabled = false;
-
-  constructor(private screen: ScreenService, private router: Router) { }
+  scrollbarMode:any ;
+  constructor(private screen: ScreenService, private router: Router ) { }
 
   ngOnInit() {
     this.menuOpened = this.screen.sizes['screen-large'];
-
     this.router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
         this.selectedRoute = val.urlAfterRedirects.split('?')[0];
+  
+        this.scrollbarMode = this.selectedRoute ==='/tasks'?true : false;
       }
     });
 
     this.screen.changed.subscribe(() => this.updateDrawer());
-
     this.updateDrawer();
   }
 
